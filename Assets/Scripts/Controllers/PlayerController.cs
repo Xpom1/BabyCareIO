@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class InputController : IExecute
+public class PlayerController : IExecute
 {
     private readonly PlayerBase _playerBase;
     private readonly Joystick _joystick;
 
-    public InputController(PlayerBase player, Joystick joystick)
+    public PlayerController(PlayerBase player, Joystick joystick)
     {
         _playerBase = player;
         _joystick = joystick;
@@ -17,6 +13,7 @@ public class InputController : IExecute
     {
         _playerBase.Move(_joystick.Horizontal, 0, _joystick.Vertical);
         _playerBase.BabyAnim();
+        _playerBase.RotationMove();
     }
    
 

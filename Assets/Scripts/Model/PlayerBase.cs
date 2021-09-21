@@ -6,4 +6,5 @@ public abstract class PlayerBase : MonoBehaviour
 
     public abstract void Move(float x, float y, float z);
     public abstract void BabyAnim();
+    public abstract void RotationMove();
 }

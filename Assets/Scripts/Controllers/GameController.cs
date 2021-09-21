@@ -9,12 +9,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private PlayerBaby _baby;
     private ListExecuteObject _interactiveObject;
-    private InputController _inputController;
+    private PlayerController _inputController;
     
     private void Awake()
     {
         _interactiveObject = new ListExecuteObject();
-        _inputController = new InputController(_baby,_joystick);
+        _inputController = new PlayerController(_baby,_joystick);
         _interactiveObject.AddExecuteObject(_inputController);
     }
 

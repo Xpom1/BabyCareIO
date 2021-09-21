@@ -4,7 +4,7 @@ public class PlayerBaby : PlayerBase
 {
     private Rigidbody _rigidbodyBaby;
     private Animator _babyAnim;
-
+  
     [SerializeField]
     private Joystick _joystick;
 
@@ -15,7 +15,7 @@ public class PlayerBaby : PlayerBase
     }
     public override void Move(float x, float y, float z)
     {
-        _rigidbodyBaby.velocity = new Vector3(x, y, z) * _speed;
+        _rigidbodyBaby.velocity = new Vector3(x, y, z) * _speed;  
     }
     public override void BabyAnim()
     {
@@ -27,5 +27,11 @@ public class PlayerBaby : PlayerBase
             _babyAnim.SetBool("Walk", false);
     }
 
-
+    public override void RotationMove()
+    {
+        if (_joystick.Horizontal != 0 || _joystick.Vertical != 0)
+        {
+            transform.rotation = Quaternion.LookRotation(_rigidbodyBaby.velocity);
+        }
+    }
 }
